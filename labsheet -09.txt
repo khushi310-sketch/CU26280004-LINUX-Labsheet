@@ -1,0 +1,74 @@
+# Q1. Display installed RPM version
+rpm --version
+
+# Q2. Display installed DNF version
+dnf --version
+
+# Q3. Search installed package
+rpm -q bash
+
+# Q4. Display package information
+rpm -qi bash
+
+# Q5. List files installed by package
+rpm -ql bash
+
+# Q6. Identify package owning a file
+rpm -qf /bin/bash
+
+# Q7. Display package installation date
+rpm -qi bash
+
+# Q8. List configured DNF repositories
+dnf repolist all
+
+# Q9. Display detailed repository information
+dnf repoinfo
+
+# Q10. Search package by name
+dnf search nano
+
+# Q11. Install a package
+sudo dnf install nano -y
+rpm -q nano
+
+# Q12. Verify installed package version
+rpm -q nano
+dnf info installed nano
+
+# Q13. Display available updates
+dnf check-update
+
+# Q14. Update selected package
+sudo dnf update nano -y
+rpm -q nano
+
+# Q15. Update all packages
+sudo dnf update -y
+dnf check-update
+
+# Q16. Remove selected test package
+sudo dnf remove nano -y
+rpm -q nano
+
+# Q17. Identify repository providing a package
+dnf repoquery --info nano
+
+# Q18. Display DNF transaction history
+dnf history
+dnf history info last
+
+# Q19. Complete package management workflow
+rpm -q tree
+dnf search tree
+sudo dnf install tree -y
+rpm -q tree
+dnf info installed tree
+sudo dnf update tree -y
+sudo dnf remove tree -y
+rpm -q tree
+
+# Q20. Verify package and repository status
+dnf repolist all
+dnf history
+rpm -qa
