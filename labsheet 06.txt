@@ -1,0 +1,102 @@
+# Q1. Create directory and file
+mkdir lab6
+touch lab6/permissions.txt
+
+# Q2. Display file permissions
+ls -l lab6/permissions.txt
+
+# Q3. Symbolic permissions
+chmod u=rwx,g=rw,o= lab6/permissions.txt
+ls -l lab6/permissions.txt
+
+# Q4. Numeric permission 640
+chmod 640 lab6/permissions.txt
+ls -l lab6/permissions.txt
+
+# Q5. Numeric permission 755
+chmod 755 lab6/permissions.txt
+ls -l lab6/permissions.txt
+
+# Q6. Remove owner execute permission
+chmod u-x lab6/permissions.txt
+ls -l lab6/permissions.txt
+
+# Q7. Add group read and execute
+chmod g+rx lab6/permissions.txt
+ls -l lab6/permissions.txt
+
+# Q8. Remove all permissions from others
+chmod o= lab6/permissions.txt
+ls -l lab6/permissions.txt
+
+# Q9. Create securedata directory with 750
+mkdir securedata
+chmod 750 securedata
+ls -ld securedata
+
+# Q10. Demonstrate file and directory permissions
+mkdir practice
+touch practice/test.txt
+chmod 640 practice/test.txt
+chmod 750 practice
+ls -l practice/test.txt
+ls -ld practice
+
+# Q11. Display current umask
+umask
+
+# Q12. Change umask to 027 and create file/directory
+umask 027
+touch umaskfile.txt
+mkdir umaskdir
+ls -l umaskfile.txt
+ls -ld umaskdir
+
+# Q13. Restore previous umask
+umask 022
+umask
+
+# Q14. Create user, group and ACL file
+sudo groupadd aclgroup
+sudo useradd -m acluser
+sudo usermod -aG aclgroup acluser
+touch aclfile.txt
+
+# Q15. Display current ACL
+getfacl aclfile.txt
+
+# Q16. Give user read and write permission
+sudo setfacl -m u:acluser:rw aclfile.txt
+getfacl aclfile.txt
+
+# Q17. Give group read permission
+sudo setfacl -m g:aclgroup:r aclfile.txt
+getfacl aclfile.txt
+
+# Q18. Modify and remove ACL entries
+sudo setfacl -m u:acluser:r aclfile.txt
+getfacl aclfile.txt
+sudo setfacl -x u:acluser aclfile.txt
+getfacl aclfile.txt
+
+# Q19. Set default ACL on directory
+mkdir acldirectory
+sudo setfacl -d -m u:acluser:rw,g:aclgroup:r acldirectory
+touch acldirectory/testfile.txt
+getfacl acldirectory
+getfacl acldirectory/testfile.txt
+
+# Q20. Complete workflow and cleanup
+chmod 640 aclfile.txt
+umask 027
+touch finalfile.txt
+sudo setfacl -m u:acluser:rw aclfile.txt
+getfacl aclfile.txt
+ls -l aclfile.txt
+umask 022
+
+# Cleanup (only lab-created accounts and groups)
+sudo userdel -r acluser
+sudo groupdel aclgroup
+rm -rf lab6 securedata practice acldirectory
+rm -f aclfile.txt umaskfile.txt finalfile.txt
