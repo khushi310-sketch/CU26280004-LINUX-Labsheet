@@ -1,0 +1,87 @@
+# Q1. Create a new file and enter five lines
+vi lab5.txt
+# Press i, type five lines
+# Press Esc, then type :wq and press Enter
+
+# Q2. Open existing file
+vi lab5.txt
+
+# Q3. Switch between modes
+# Normal Mode: Esc
+# Insert Mode: i
+# Command-Line Mode: :
+
+# Q4. Insert before and after cursor
+# Press i to insert before cursor
+# Press a to insert after cursor
+# Press Esc to return to Normal Mode
+
+# Q5. Add new line below and above
+o
+O
+
+# Q6. Save without exiting
+:w
+
+# Q7. Save and exit
+:wq
+
+# Q8. Exit without saving
+:q!
+
+# Q9. Beginning and end of line
+0
+$
+
+# Q10. Beginning and end of file
+gg
+G
+
+# Q11. Delete character, word and line
+x
+dw
+dd
+
+# Q12. Copy current line and paste below
+yy
+p
+
+# Q13. Copy multiple lines and paste
+3yy
+p
+
+# Q14. Search forward
+/word
+n
+N
+
+# Q15. Search backward
+?word
+n
+N
+
+# Q16. Replace first occurrence on current line
+:s/old/new/
+
+# Q17. Replace all occurrences in complete file
+:%s/old/new/g
+
+# Q18. Undo and redo
+u
+Ctrl + r
+
+# Q19. Display line numbers and jump to line
+:set number
+:5
+
+# Q20. Complete workflow
+vi lab5.txt
+# Press i and enter text
+# Press Esc
+:set number
+/word
+:%s/old/new/g
+yy
+p
+:w
+:wq
