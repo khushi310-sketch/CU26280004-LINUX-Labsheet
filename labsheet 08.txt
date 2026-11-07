@@ -1,0 +1,91 @@
+# Q1. Display mounted file systems
+df
+
+# Q2. Disk usage in human-readable format
+df -h
+
+# Q3. Display current directory size
+du .
+
+# Q4. Display directory sizes in human-readable format
+du -h
+
+# Q5. Display selected directory size with subdirectories
+du -h /home
+
+# Q6. Display all block devices
+lsblk
+
+# Q7. Display disk names, partitions, sizes and mount points
+lsblk -o NAME,SIZE,TYPE,MOUNTPOINTS
+
+# Q8. Display file-system information
+lsblk -f
+
+# Q9. Display mounted file systems and mount points
+findmnt
+
+# Q10. Create mount point directory
+sudo mkdir -p /mnt/labdisk
+ls -ld /mnt/labdisk
+
+# Q11. Mount a dedicated test partition
+lsblk
+sudo mount /dev/sdX1 /mnt/labdisk
+findmnt /mnt/labdisk
+
+# Q12. Display mounted disk usage
+df -h /mnt/labdisk
+
+# Q13. Create test file
+sudo touch /mnt/labdisk/testfile.txt
+ls -l /mnt/labdisk
+
+# Q14. Unmount file system
+cd ~
+sudo umount /mnt/labdisk
+findmnt /mnt/labdisk
+
+# Q15. Identify processes using mount point
+sudo fuser -vm /mnt/labdisk
+cd ~
+sudo umount /mnt/labdisk
+
+# Q16. Display partition table
+sudo fdisk -l
+
+# Q17. Display dedicated practice disk
+lsblk
+sudo fdisk /dev/sdX
+# Use fdisk interactive options only on a dedicated test disk.
+# Verify partition:
+lsblk
+
+# Q18. Create file system and mount practice partition
+sudo mkfs.ext4 /dev/sdX1
+sudo mount /dev/sdX1 /mnt/labdisk
+df -h /mnt/labdisk
+lsblk -f
+findmnt /mnt/labdisk
+
+# Q19. Unmount and verify
+cd ~
+sudo umount /mnt/labdisk
+findmnt
+lsblk -f
+
+# Q20. Complete workflow
+df -h
+du -sh /home
+lsblk -f
+findmnt
+sudo mkdir -p /mnt/labdisk
+sudo mount /dev/sdX1 /mnt/labdisk
+sudo touch /mnt/labdisk/final_test.txt
+df -h /mnt/labdisk
+lsblk -f
+findmnt /mnt/labdisk
+cd ~
+sudo umount /mnt/labdisk
+findmnt
+lsblk -f
