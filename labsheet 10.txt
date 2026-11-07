@@ -1,0 +1,98 @@
+# Q1. Create directory and three text files
+mkdir -p archive_lab
+echo "This is file one" > archive_lab/file1.txt
+echo "This is file two" > archive_lab/file2.txt
+echo "This is file three" > archive_lab/file3.txt
+
+# Q2. Create tar archive
+tar -cvf files.tar archive_lab/*
+ls -lh files.tar
+
+# Q3. List tar archive contents
+tar -tvf files.tar
+
+# Q4. Extract tar archive
+mkdir -p extracted_tar
+tar -xvf files.tar -C extracted_tar
+
+# Q5. Compress a text file using gzip
+gzip archive_lab/file1.txt
+ls archive_lab
+
+# Q6. Decompress using gunzip
+gunzip archive_lab/file1.txt.gz
+ls archive_lab
+
+# Q7. Create tar.gz archive
+tar -czvf archive.tar.gz archive_lab
+
+# Q8. List tar.gz contents
+tar -tzvf archive.tar.gz
+
+# Q9. Extract tar.gz archive
+mkdir -p extracted_gzip
+tar -xzvf archive.tar.gz -C extracted_gzip
+ls extracted_gzip/archive_lab
+
+# Q10. Create ZIP archive of three files
+zip files.zip archive_lab/file1.txt archive_lab/file2.txt archive_lab/file3.txt
+
+# Q11. List ZIP contents
+unzip -l files.zip
+
+# Q12. Extract ZIP archive
+mkdir -p extracted_zip
+unzip files.zip -d extracted_zip
+
+# Q13. Extract only one selected file
+mkdir -p single_extract
+unzip files.zip archive_lab/file1.txt -d single_extract
+
+# Q14. ZIP entire directory
+zip -r directory.zip archive_lab
+unzip -l directory.zip
+
+# Q15. Create gzip-compressed tar archive
+tar -czvf compressed_archive.tar.gz archive_lab
+ls -lh files.tar compressed_archive.tar.gz
+
+# Q16. Create tar archive and add another file
+tar -cvf newfiles.tar archive_lab/file1.txt
+echo "Additional content" > archive_lab/file4.txt
+tar -rvf newfiles.tar archive_lab/file4.txt
+tar -tvf newfiles.tar
+
+# Q17. Compare tar and tar.gz sizes
+tar -cvf compare.tar archive_lab
+tar -czvf compare.tar.gz archive_lab
+ls -lh compare.tar compare.tar.gz
+tar -tvf compare.tar
+tar -tzvf compare.tar.gz
+
+# Q18. Decompress and extract both archives
+mkdir -p extract_tar_gz
+mkdir -p extract_zip_file
+tar -xzvf archive.tar.gz -C extract_tar_gz
+unzip files.zip -d extract_zip_file
+
+# Q19. Backup and restore practice directory
+mkdir -p practice_backup
+echo "Backup file one" > practice_backup/one.txt
+echo "Backup file two" > practice_backup/two.txt
+tar -czvf backup.tar.gz practice_backup
+mkdir -p restored_backup
+tar -xzvf backup.tar.gz -C restored_backup
+ls -R restored_backup
+
+# Q20. Complete archive and compression workflow
+tar -cvf final.tar archive_lab
+tar -czvf final.tar.gz archive_lab
+gzip -k archive_lab/file2.txt
+gunzip -k archive_lab/file2.txt.gz
+zip -r final.zip archive_lab
+unzip -l final.zip
+mkdir -p final_restore
+tar -xzvf final.tar.gz -C final_restore
+mkdir -p final_zip_restore
+unzip final.zip -d final_zip_restore
+ls -lh final.tar final.tar.gz final.zip
