@@ -1,0 +1,98 @@
+# Q1. Display current user's processes
+ps
+
+# Q2. Display all processes
+ps -e
+
+# Q3. Detailed process listing
+ps aux
+
+# Q4. Display process hierarchy
+ps -ef --forest
+
+# Q5. Start top command
+top
+
+# Q6. Identify process with high CPU or memory usage
+top
+# Press P for CPU sorting
+# Press M for memory sorting
+# Note the PID
+
+# Q7. Start htop
+htop
+
+# Q8. Start foreground process
+sleep 300
+# Press Ctrl+C to terminate
+
+# Q9. Start background process
+sleep 300 &
+echo $!
+
+# Q10. Display current shell jobs
+jobs
+
+# Q11. Bring background job to foreground
+sleep 300 &
+jobs
+fg %1
+# Press Ctrl+C
+
+# Q12. Suspend foreground process
+sleep 300
+# Press Ctrl+Z
+
+# Q13. Resume stopped job in background
+bg %1
+jobs
+
+# Q14. Display job number and PID
+jobs -l
+
+# Q15. Terminate process using PID
+sleep 300 &
+PID=$!
+kill "$PID"
+ps -p "$PID"
+
+# Q16. Terminate using SIGTERM
+sleep 300 &
+PID=$!
+kill -TERM "$PID"
+ps -p "$PID"
+
+# Q17. Terminate test process using SIGKILL
+sleep 300 &
+PID=$!
+kill -KILL "$PID"
+ps -p "$PID"
+
+# Q18. Terminate process by name
+sleep 300 &
+pkill -x sleep
+pgrep -a sleep
+
+# Q19. Manage multiple test processes
+sleep 300 &
+sleep 400 &
+sleep 500 &
+jobs -l
+ps -u "$USER"
+jobs
+kill %1
+kill %2
+kill %3
+
+# Q20. Complete process management workflow
+ps
+sleep 300
+# Press Ctrl+Z
+jobs -l
+bg %1
+jobs
+fg %1
+# Press Ctrl+Z
+kill %1
+jobs
+ps -u "$USER"
