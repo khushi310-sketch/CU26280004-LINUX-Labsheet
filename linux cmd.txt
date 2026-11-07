@@ -1,0 +1,162 @@
+# Q1
+pwd
+
+# Q2
+ls
+
+# Q3
+ls -la ~
+
+# Q4
+ls -lh
+
+# Q5
+mkdir myfirstlab
+
+# Q6
+cd myfirstlab
+
+# Q7
+touch a.txt b.txt c.txt
+
+# Q8
+cat /etc/os-release
+
+# Q9
+whoami
+
+# Q10
+hostname
+
+# Q11
+df -h
+
+# Q12
+free -h
+
+# Q13
+uptime
+
+# Q14
+uname -a
+
+# Q15
+man ls
+
+# Q16
+cp --help
+
+# Q17
+whatis mv
+
+# Q18
+cd ~
+
+# Q19
+mkdir -p project/src/data
+
+# Q20
+rm myfirstlab/c.txt
+
+# Q21
+echo "Rahul" >> students.txt
+echo "Priya" >> students.txt
+echo "Aman" >> students.txt
+echo "Riya" >> students.txt
+echo "Rohit" >> students.txt
+
+# Q22
+head -n 2 students.txt
+
+# Q23
+tail -n 2 students.txt
+
+# Q24
+mkdir backup
+cp students.txt backup/
+
+# Q25
+mv students.txt class_list.txt
+
+# Q26
+grep "a" class_list.txt
+
+# Q27
+grep -n "a" class_list.txt
+
+# Q28
+chmod 600 class_list.txt
+ls -l class_list.txt
+
+# Q29
+find ~ -type f -name "*.txt"
+
+# Q30
+wc -l class_list.txt
+
+# Q31
+head -n 5 /etc/passwd
+
+# Q32
+tail -n 5 /var/log/dpkg.log
+
+# Q33
+cp -r project project_backup
+
+# Q34
+less class_list.txt
+
+# Q35
+mkdir -p archive
+mv myfirstlab/a.txt myfirstlab/b.txt archive/
+
+# Q36
+mkdir -p logs
+for i in {1..10}; do echo "Dummy log line $i" >> logs/app.log; done
+tail -n 3 logs/app.log
+
+# Q37
+find . -type f -name "*.log" -exec cat {} +
+
+# Q38
+grep -rn "error" .
+
+# Q39
+echo '# rwxr-xr--: owner has rwx, group has r-x, others have r--' > test.sh
+chmod +x test.sh
+
+# Q40
+mkdir demo && cd demo && ls
+
+# Q41
+find ~ -type f -name "*.txt" | wc -l
+
+# Q42
+find /var/log -type d
+
+# Q43
+grep -i "UUID" /etc/fstab
+
+# Q44
+du -sh foldername
+
+# Q45
+ls -lS | head -n 4
+
+# Q46
+pwd
+ls -la
+
+# Q47
+touch existing_file.txt
+
+# Q48
+printf "Apple\nBanana\nApple\nMango\nBanana\n" > duplicates.txt
+sort duplicates.txt | uniq
+
+# Q49
+uname -a > sys_info.txt
+cat sys_info.txt
+
+# Q50
+find /var/log -type f -mtime -7
