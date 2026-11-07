@@ -1,0 +1,101 @@
+# Q1
+whoami
+id
+
+# Q2
+grep "^testuser:" /etc/passwd
+
+# Q3
+sudo passwd -S testuser
+
+# Q4
+sudo useradd labuser1
+id labuser1
+
+# Q5
+sudo useradd -m labuser2
+ls -ld /home/labuser2
+
+# Q6
+sudo useradd -s /bin/bash labuser3
+grep "^labuser3:" /etc/passwd
+
+# Q7
+sudo passwd labuser1
+sudo passwd -S labuser1
+
+# Q8
+sudo passwd labuser1
+sudo passwd -S labuser1
+
+# Q9
+sudo usermod -s /bin/bash labuser2
+grep "^labuser2:" /etc/passwd
+
+# Q10
+sudo usermod -d /home/labuser2_new labuser2
+sudo usermod -d /home/labuser2_new -m labuser2
+ls -ld /home/labuser2_new
+
+# Q11
+sudo groupadd userlabgroup
+sudo usermod -aG userlabgroup labuser1
+groups labuser1
+
+# Q12
+sudo usermod -L labuser3
+sudo passwd -S labuser3
+sudo usermod -U labuser3
+sudo passwd -S labuser3
+
+# Q13
+sudo chage -l labuser3
+
+# Q14
+sudo chage -E 2026-12-31 labuser3
+sudo chage -l labuser3
+
+# Q15
+sudo groupadd primarygroup
+sudo usermod -g primarygroup labuser1
+id labuser1
+
+# Q16
+id labuser1
+groups labuser1
+getent passwd labuser1
+getent group userlabgroup
+
+# Q17
+sudo userdel labuser1
+id labuser1
+ls -ld /home/labuser1
+
+# Q18
+sudo userdel -r labuser2
+id labuser2
+ls -ld /home/labuser2
+
+# Q19
+sudo useradd -m -s /bin/bash workflowuser
+sudo passwd workflowuser
+sudo groupadd workflowgroup
+sudo usermod -aG workflowgroup workflowuser
+sudo usermod -L workflowuser
+sudo passwd -S workflowuser
+sudo usermod -U workflowuser
+id workflowuser
+groups workflowuser
+
+# Q20
+sudo userdel -r labuser1
+sudo userdel -r labuser2
+sudo userdel -r labuser3
+sudo userdel -r workflowuser
+sudo groupdel userlabgroup
+sudo groupdel primarygroup
+sudo groupdel workflowgroup
+getent passwd labuser1
+getent passwd labuser2
+getent passwd labuser3
+getent passwd workflowuser
